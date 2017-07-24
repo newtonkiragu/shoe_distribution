@@ -1,0 +1,40 @@
+ @import url('https://fonts.googleapis.com/css?family=Playfair+Display+SC');
+ @import url('https://fonts.googleapis.com/css?family=Muli|Nunito|Raleway');
+ body {
+   font-size: 18px;
+
+   font-family: 'Muli', sans-serif;
+
+   font-family: 'Raleway', sans-serif;
+
+   font-family: 'Nunito', sans-serif;
+ }
+
+ a,
+ a:focus {
+   outline: none;
+ }
+
+ .submit-btn {
+   text-align: center;
+ }
+
+ .input-field {
+   width: 65%;
+   margin: auto;
+ }
+
+ .margin-auto {
+   margin: auto;
+ }
+
+ .menu-icon {
+   margin-top: 10%;
+   margin-bottom: 10%;
+ }
+
+ nav .brand-logo.center {
+
+   font-family: 'Playfair Display SC',
+   serif;
+ }
