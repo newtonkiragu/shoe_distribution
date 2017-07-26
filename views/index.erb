@@ -1,0 +1,67 @@
+<body id="index" style="">
+  <!-- Add Store Modal -->
+  <div id="new_store" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4 class="center-align">NEW STORE</h4>
+      <a class="modal-action modal-close waves-effect waves-green btn-flat right"><i class="material-icons">close</i></a>
+      <form action="/stores/new" method="post">
+        <div class="input-field">
+          <label>Store Name</label>
+          <input type="text" name="store_name" id="store_name" required>
+        </div>
+        <div class="input-field">
+          <label>Store Location</label>
+          <input type="text" name="store_location" id="store_location" required>
+        </div>
+        <div class="input-field">
+          <label>Store Image URL</label>
+          <input type="text" name="image" id="image" required>
+        </div>
+        <div class="submit-btn">
+          <button class="btn indigo waves-effect waves-light black" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Add Brand Modal -->
+  <div id="new_brand" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4 class="center-align">NEW BRAND</h4>
+      <form action="/brands/new" method="post">
+        <div class="input-field">
+          <input type="text" name="brand_name" id="brand_name" required placeholder="BRAND NAME">
+        </div>
+        <div class="input-field">
+          <input type="text" name="image" id="image" required placeholder="BRAND IMAGE URL">
+        </div>
+        <div class="submit-btn">
+          <button class="btn indigo waves-effect waves-light black" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons">close</i></a>
+    </div>
+  </div>
+  <!-- Display Stores -->
+  <div>
+    <div class="row">
+      <% @stores.each  do |store| %>
+        <div class="col s6">
+          <div class="card horizontal">
+            <div class="card-image">
+              <a href="/stores/<%=store.id%>"><img src="<%= store.image %>"></a>
+              <a class="btn-floating halfway-fab waves-effect waves-light cyan activator"><i class="material-icons">more_horiz</i></a>
+            </div>
+            <div class="card-content grey fill">
+              <span class="center-align video-title card-title white-text"><%= store.store_name %></span>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Found in <em><%= store.location %></em><i class="material-icons right">close</i></span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</body>

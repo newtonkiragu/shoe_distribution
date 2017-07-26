@@ -6,6 +6,16 @@ get '/' do
   @stores = Store.all
   erb(:index)
 end
+get '/about' do
+  erb(:about)
+end
+
+get '/store' do
+  @brands = Brand.all
+  @stores = Store.all
+  @store = Store.find(params.fetch('id').to_i)
+  erb(:store)
+end
 
 post '/stores/new' do
   new_store = Store.new(store_name: params.fetch('store_name'), location: params.fetch('store_location'), image: params.fetch('image'))
@@ -19,13 +29,14 @@ end
 post '/brands/new' do
   new_brand = Brand.new(brand_name: params.fetch('brand_name'), image: params.fetch('image'))
   if new_brand.save
-    redirect '/'
+    redirect '/stores/:id'
   else
     erb(:error)
   end
 end
 
 get '/stores/:id' do
+  @brands = Brand.all
   @store = Store.find(params.fetch("id").to_i())
   erb(:store)
 end

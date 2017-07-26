@@ -1,0 +1,85 @@
+<body>
+  <h3 class="center-align"><%=@store.store_name%></h3>
+  <h4>Found in <em><%=@store.location%></em></h4>
+  <div class="col sm12 tooltipped" data-tooltip="back" data-position="left"><a href="/"><i class="material-icons medium">arrow_back</i></a></div>
+  <!-- Floating Action Button -->
+  <ul>
+    <div class="row" id="flexed">
+      <div class="col sm12">
+        <a class="btn-floating btn-small waves-effect waves-light light-blue menu-icon modal-trigger" href="#new_brand"><i class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Add a brand">add</i></a>
+      </div>
+      <div class="col sm12">
+        <a class="btn-floating btn-small waves-effect waves-light green menu-icon" href="/stores/<%= @store.id() %>/edit"><i class="material-icons tooltipped" data-position="down" data-delay="50" data-tooltip="Edit <%=@store.store_name%>">edit</i></a>
+      </div>
+      <div class="col sm12">
+        <form action="/stores/<%=@store.id%>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button class="btn-floating btn-small waves-effect waves-light red tooltipped menu-icon" type="submit" data-position="right" data-delay="50" data-tooltip="Delete <%=@store.store_name%>"><i class="material-icons">delete</i></button>
+        </form>
+      </div>
+    </div>
+  </ul>
+  <!-- Floating Action Button -->
+  <!-- brands -->
+  <h4>Here are all your brands</h4>
+  <div class="container">
+    <div class="row">
+      <% @brands.each  do |brand| %>
+        <div class="col s4">
+          <div class="card z-depth-4">
+            <div class="card-image">
+              <img src="<%= brand.image %>">
+            </div>
+            <div class="card-content black">
+              <span class="center-align video-title card-title white-text"><%= brand.brand_name %></span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+    </div>
+  </div>
+  <!-- Add Store Modal -->
+  <div id="new_store" class="modal">
+    <div class="modal-content">
+      <h4 class="center-align">NEW STORE</h4>
+      <a class="modal-action modal-close waves-effect waves-green btn-flat right"><i class="material-icons">close</i></a>
+      <form action="/stores/new" method="post">
+        <div class="input-field">
+          <label>Store Name</label>
+          <input type="text" name="store_name" id="store_name" required>
+        </div>
+        <div class="input-field">
+          <label>Store Location</label>
+          <input type="text" name="store_location" id="store_location" required>
+        </div>
+        <div class="input-field">
+          <label>Store Image URL</label>
+          <input type="text" name="image" id="image" required>
+        </div>
+        <div class="submit-btn">
+          <button class="btn indigo waves-effect waves-light black" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+<!-- Add Brand Modal -->
+<div id="new_brand" class="modal bottom-sheet">
+  <div class="modal-content">
+    <h4 class="center-align">NEW BRAND</h4>
+    <form action="/brands/new" method="post">
+      <div class="input-field">
+        <input type="text" name="brand_name" id="brand_name" required placeholder="BRAND NAME">
+      </div>
+      <div class="input-field">
+        <input type="text" name="image" id="image" required placeholder="BRAND IMAGE URL">
+      </div>
+      <div class="submit-btn">
+        <button class="btn indigo waves-effect waves-light black" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <a class="modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons">close</i></a>
+  </div>
+</div>
