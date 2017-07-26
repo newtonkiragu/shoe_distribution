@@ -9,6 +9,10 @@ end
 get '/about' do
   erb(:about)
 end
+get '/success' do
+  @stores = Store.all
+  erb(:success)
+end
 
 get '/store' do
   @brands = Brand.all
@@ -29,7 +33,7 @@ end
 post '/brands/new' do
   new_brand = Brand.new(brand_name: params.fetch('brand_name'), image: params.fetch('image'))
   if new_brand.save
-    redirect '/stores/:id'
+    redirect '/success'
   else
     erb(:error)
   end
