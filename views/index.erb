@@ -1,6 +1,6 @@
 <body id="index" style="">
   <!-- Add Store Modal -->
-  <div id="new_store" class="modal bottom-sheet">
+  <div id="new_store" class="modal bottom-sheet" style="color: black;">
     <div class="modal-content">
       <h4 class="center-align">NEW STORE</h4>
       <a class="modal-action modal-close waves-effect waves-green btn-flat right"><i class="material-icons">close</i></a>
@@ -24,7 +24,7 @@
     </div>
   </div>
   <!-- Add Brand Modal -->
-  <div id="new_brand" class="modal bottom-sheet">
+  <div id="new_brand" class="modal bottom-sheet" style="color: black;">
     <div class="modal-content">
       <h4 class="center-align">NEW BRAND</h4>
       <form action="/brands/new" method="post">
@@ -53,7 +53,7 @@
               <a href="/stores/<%=store.id%>"><img src="<%= store.image %>"></a>
               <a class="btn-floating halfway-fab waves-effect waves-light cyan activator"><i class="material-icons">more_horiz</i></a>
             </div>
-            <div class="card-content grey fill">
+            <div class="card-content grey">
               <span class="center-align video-title card-title white-text"><%= store.store_name %></span>
             </div>
             <div class="card-reveal">
