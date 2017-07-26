@@ -1,19 +1,21 @@
-<h3 class="center-align">Update <%=@store.store_name() %></h3>
-<form action="/stores/<%= @store.id%>/edit" method="post" style="color: black;">
-  <input name="_method" type="hidden" value="patch">
-  <div class="input-field">
-    <label>Store Name</label>
-    <input type="text" name="store_name" id="store_name" required value="<%=@store.store_name%>">
-  </div>
-  <div class="input-field">
-    <label>Store Location</label>
-    <input type="text" name="store_location" id="store_location" required value="<%=@store.location%>">
-  </div>
-  <div class="input-field">
-    <label>Store Image URL</label>
-    <input type="text" name="image" id="image" required value="<%=@store.image%>">
-  </div>
-  <div class="submit-btn">
-    <button class="btn indigo waves-effect waves-light black" type="submit">Update</button>
-  </div>
-</form>
+<div class="box" style="color: white; background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); padding: 20px;">
+  <h3 class="center-align">Update <%=@store.store_name() %></h3>
+  <form action="/stores/<%= @store.id%>/edit" method="post">
+    <input name="_method" type="hidden" value="patch">
+    <div class="input-field">
+      <label>Store Name</label>
+      <input type="text" name="store_name" id="store_name" required value="<%=@store.store_name%>">
+    </div>
+    <div class="input-field">
+      <label>Store Location</label>
+      <input type="text" name="store_location" id="store_location" required value="<%=@store.location%>">
+    </div>
+    <div class="input-field">
+      <label>Store Image URL</label>
+      <input type="text" name="image" id="image" required value="<%=@store.image%>">
+    </div>
+    <div class="submit-btn">
+      <button class="btn indigo waves-effect waves-light black" type="submit">Update</button>
+    </div>
+  </form>
+</div>
